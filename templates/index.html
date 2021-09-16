@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Used Car Price Predictor</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Used Car Price Predictor</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+    		</div>
+    	</div>
+
+
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="{{ url_for('predict') }}" method="POST">
+		<h3>Kilometers_Driven:</h3>
+		<input class="form-input" type="text" name="Kilometers_Driven" placeholder="Eg:30000" required="required"><br>
+		<h3>Mileage:</h3>
+                <input class="form-input" type="text" name="Mileage" placeholder="Eg:15-40" required="required"><br>
+		<h3>Engine:</h3>
+                <input class="form-input" type="text" name="Engine" placeholder="Eg:100-6000" required="required"><br>
+		<h3>Power:</h3>
+                <input class="form-input" type="text" name="Power" placeholder="Eg:50-600" required="required"><br>
+		<h3>Seats:</h3>
+                <input class="form-input" type="text" name="Seats" placeholder="Eg:2,4,5,7,10" required="required"><br>
+		<h3>how_old edition:</h3>
+                <input class="form-input" type="text" name="how_old" placeholder="Eg:1-20" required="required"><br>
+
+		<h3>Fuel type:</h3><select name="Fuel_Type" id="fuel" required="required">
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+            	</select><br>
+
+		<h3>Transmission type:</h3><select name="Transmission_type" id="research" required="required">
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            	</select><br>
+	
+		<h3>Owner type:</h3><select name="Owner_type" id="dd" required="required">
+                <option value="First">First</option>
+                <option value="Second">Second</option>
+		<option value="Third">Third</option>
+            	</select><br>
+		
+
+                
+               <br><button id="sub" type="submit">Calculate Price</button>
+           </form>
+	</div>
+	<div class="results">
+			<h1>Prediction: <span >{% print(prediction) %}</span></h1>
+	</div>
+
+	
+	   <!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/David-Sandeep"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/david-sandeep-82221a114"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+       </div>
+
+
+   
+
+    </body>
+</html>
