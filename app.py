@@ -120,10 +120,10 @@ def predict():
         #prediction=model.predict([fs])
         #output=np.round(prediction[0],2)
         #print(str(output)+" predicted ")
-        if output<0:
-            return render_template('index.html',prediction="Sorry you cannot sell this car")
-        else:
-            return render_template('index.html',prediction="You Can Sell The Car at {}".format(output))
+        #if output<0:
+            #return render_template('index.html',prediction="Sorry you cannot sell this car")
+        #else:
+            #return render_template('index.html',prediction="You Can Sell The Car at {}".format(output))
     else:
         return render_template('index.html')
 
