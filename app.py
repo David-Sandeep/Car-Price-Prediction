@@ -47,7 +47,7 @@ def save_response_content(response, destination):
 
 file_id = '1adq9EUFi-kUqg-KYa5hT7ZgrpLK6paWn'
 destination = 'random_forest_regression_model.pkl'
-#download_file_from_google_drive(file_id, destination)
+download_file_from_google_drive(file_id, destination)
 
 
 
@@ -62,7 +62,7 @@ destination = 'random_forest_regression_model.pkl'
 
 
 
-#model = pickle.load(open('random_forest_regression_model.pkl', 'rb'))
+model = pickle.load(open('random_forest_regression_model.pkl', 'rb'))
 
 @app.route('/',methods=['GET'])
 def Home():
@@ -117,13 +117,13 @@ def predict():
        Owner_Type_Third, Fuel_Type_Diesel]
 	
         print(fs)
-        #prediction=model.predict([fs])
-        #output=np.round(prediction[0],2)
-        #print(str(output)+" predicted ")
-        #if output<0:
-            #return render_template('index.html',prediction="Sorry you cannot sell this car")
-        #else:
-            #return render_template('index.html',prediction="You Can Sell The Car at {}".format(output))
+        prediction=model.predict([fs])
+        output=np.round(prediction[0],2)
+        print(str(output)+" predicted ")
+        if output<0:
+            return render_template('index.html',prediction="Sorry you cannot sell this car")
+        else:
+            return render_template('index.html',prediction="You Can Sell The Car at {}".format(output))
     else:
         return render_template('index.html')
 
